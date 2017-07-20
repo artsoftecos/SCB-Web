@@ -1,0 +1,11 @@
+Instrucciones
+
+* Pre-requisitos:
+- herramienta IDE (Visual Studio Code, Eclipe o Sublimetext ...)
+- Instalado Node JS.
+- Instalado Angular Cli (npm install -g @angular/cli)
+
+1. Crear proyecto:
+- ng new NombreDelProyecto
+- ng serve
+

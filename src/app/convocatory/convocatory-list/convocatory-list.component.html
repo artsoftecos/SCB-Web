@@ -1,0 +1,10 @@
+<h2>Convocatorias</h2>
+<a *ngFor="let convocatory of convocatories">
+    <label>Name: </label> <span>{{convocatory.name}}</span>    
+    <label>Capacity: </label> <span>{{convocatory.capacity}}</span>
+    <button (click)="goToDetail(convocatory); $event.stopPropagation()">Go Detail</button>
+    <button (click)="apply(convocatory); $event.stopPropagation()">Apply</button>
+</a>
+<div>  
+  <span>{{errorMessage}}</span>
+</div>

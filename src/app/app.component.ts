@@ -1,17 +1,9 @@
 import { Component } from '@angular/core';
-import { Convocatoria } from './convocatoria';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
-  convocatorias = [];
-  convocatoriaSeleccionada: Convocatoria;
+export class AppComponent {}  
 
-  onSelect(convocatoria: Convocatoria): void {
-    this.convocatoriaSeleccionada = convocatoria;
-  }
-}

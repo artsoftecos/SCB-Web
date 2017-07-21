@@ -8,6 +8,9 @@ https://angular.io/tutorial/toh-pt4
 
 * Pre-requisitos:
 - herramienta IDE (Visual Studio Code, Eclipe o Sublimetext ...)
+	(Si es Visual studio code, se pueden instalar estas extensiones:
+	- Debbuger for chrome.
+	- Angular v4 TypeScript Snippets.
 - Instalado Node JS.
 - Instalado Angular Cli (npm install -g @angular/cli)
 

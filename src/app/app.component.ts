@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Convocatoria } from './convocatoria';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  convocatorias = [];
+  convocatoriaSeleccionada: Convocatoria;
+
+  onSelect(convocatoria: Convocatoria): void {
+    this.convocatoriaSeleccionada = convocatoria;
+  }
 }

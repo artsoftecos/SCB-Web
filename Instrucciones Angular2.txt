@@ -1,11 +1,297 @@
 Instrucciones
 
+*Alguna documentacion:
+https://angular.io/guide/quickstart
+https://angular.io/tutorial
+https://angular.io/tutorial/toh-pt4
+
+
 * Pre-requisitos:
 - herramienta IDE (Visual Studio Code, Eclipe o Sublimetext ...)
 - Instalado Node JS.
 - Instalado Angular Cli (npm install -g @angular/cli)
 
+
+----
+lo que significan los archivos:
+http://victorroblesweb.es/2016/04/11/instalar-angular-2-hola-mundo/
+http://onehungrymind.com/build-a-simple-website-with-angular-2/
+http://angularmexico.com/blog/primer-proyecto-angular2/
+http://codigoxules.org/creando-el-primer-proyecto-en-angular-2-manual-vs-angular-cli/
+
+
+
 1. Crear proyecto:
 - ng new NombreDelProyecto
+
+
+2. Iniciar a correr el proyecto (estando dentro del proyecto, escoger cualquiera de los dos)
 - ng serve
+- npm start
+(This command runs the TypeScript compiler in "watch mode", recompiling automatically when the code changes. 
+The command simultaneously launches the app in a browser and refreshes the browser when the code changes.)
+
+(en el browser ir a: http://localhost:4200/)
+
+3. Crear diferentes partes usando Angular cli:
+module: ng g m my-module
+Component:	ng g component my-new-component
+Directive:	ng g directive my-new-directive
+Pipe:	ng g pipe my-new-pipe
+Service:	ng g service my-new-service
+Class:	ng g class my-new-class
+Interface:	ng g interface my-new-interface
+Enum:	ng g enum my-new-enum
+
+13. Crear el componente:  
+La ideade un componente es encapsular la funcionalidad de una unica responsabilidad, por ejemplo listar convocatorias, crear convocatorias, editar convocatorias, cada uno 
+de estos serian componentes (cada uno tiene un back angular, tiene una vista propia)
+por standar de Angular:
+- CamelCase y terminado en Component el nombre de la clase-> HeroDetailComponent
+- lower y con guiones los nombres de los archivos.
+ng g component hero-detail    (creara el archivo hero-detail.component.ts y la clase HeroDetailComponent)
+
+5. Crear un servicio:
+La idea es encapsular todas las funcionalidades que tengan que ver con dominios, ejemplo, convocatoria, habra un servicios que encapsule crear, editar, get, delete
+de una convocatoria, es aca donde se puede llamar servicios Rest de otra aplicación. (a web service, local storage, or a mock data source)
+ng g service Hero
+(crea el archivo: hero.service.ts y la clase HeroService)
+
+Aca se pueden colocar metodos como:
+getHeroes() { ... }
+
+Si se obtiene la excepcion:
+EXCEPTION: No provider for HeroService! (AppComponent -> HeroService)
+
+es porque debe ser importado el servicio en providers: (dentro del componente)
+providers: [HeroService]
+O lo puede importar en providers del modulo (No se nesecitaria colocar en cada uno de los componentes).
+
+
+
+3. El componente y la vista:
+- Se puede colocar una propiedad UrlTemplate y asociar el html de la vista
+- Se puede colocar en el componente la propiedad template y ahí mismo colocar el Html.
+
+4. One-way binding
+Muestra los valores de la propiedad. (a diferencia de two-way binding, donde se permite editar y asi mismo ver los valores)
+Sintaxis: {{Propiedad}}
+Ejemplo: <h2>{{hero.name}} details!</h2>
+
+5. Two-way binding
+Permite manejar tanto en la vista como en el back la misma propiedad, donde sea que se modifique se vera el valor
+modificado. (si en el back cambia en el front de una vez se vera reflejado y asi en vicseversa)
+Sintaxis :[(ngModel)]
+Ejemplo:  <input [(ngModel)]="hero.name" placeholder="name">
+
+(puede aparecer este error: "Can't bind to 'ngModel' since it isn't a known property of 'input'"), esto es porque 
+pertenece a este modulo: "FormsModule", se debe importar.
+
+6. Modulo
+Un modulo encapsula varios componentes y asu vez puede encapsular varios otros muodulos, es aca donde se define que 
+otros modulos importamos o que modulos se exportan.
+Ejemplo:
+app.module.ts  
+
+7. ngFor
+(https://angular.io/guide/displaying-data#ngFor)
+Permite iterar uno a uno los valores, se usa en la vista, para representar listas.
+Sintaxis:
+-   ngFor="" -> itera uno a uno los valores de una lista, array..
+Ejemplo: <li ngFor="let hero of heroes">  (heroes es la lista en el ts de Angular, hero es un solo elemento)
+-   *ngFor="" -> El (*) indica que el elemento <li> y sus hijos constituyen un template master.
+Ejemplo: 
+<li *ngFor="let hero of heroes">
+  <span class="badge">{{hero.id}}</span> {{hero.name}}
+</li>
+
+8. Styles:
+Se puede agregar de 2 formas:
+- Style: la propiedad style dentro de los atributos del componente.
+- estilos globales: Importar los estilos.
+
+9. Evento click 
+El evento permite interactuar con el back, el comun es el click, todo evento esta en ()
+en el Html colocar el () -> (click) y en el back se mapea el evento.
+Click -> (click)="onSelect(hero)"
+
+10. ngIf
+Condicional if para saber que renderizar y que no.
+Sintaxis: *ngIf=""
+Ejemplo: <div *ngIf="selectedHero">  (si este valor no a sido asignado este ngIf sera falso)
+
+11. class
+Se utiliza en la vista (Html), vistas condicionales, en estas vistas se puede colocar condicional tambien.
+Sintaxis: [class.selected]   (selected es la clase condicional a agregar)
+Ejemplo:  [class.selected]="hero === selectedHero"  (si se cumple la condición agregar selected al Html).
+
+12. diferentes tags para colocar en la vista y generar interacción con el back
+[property]="expression": set property of an element to the value of expression
+(event)="statement": execute statement when event occurred
+[(property)]="expression": create two-way binding with expression
+[class.special]="expression": add special CSS class to element when the value of expression is truthy
+[style.color]="expression": set color CSS property to the value of expression
+
+
+13. Compartir información entre componentes
+1. import { Component, Input } from '@angular/core';  (importar input)
+2. @Input() hero: Hero; (a la propiedad que deseo recibirlo agregarle la anotacion @Input)
+3. importar en el componente princial el otro componente: import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+4. aregar al modulo el componente HeroDetailComponent en declarations.
+5. Por medio de la anotacion @input y en la vista se le pasa la información por medio de la directiva del otro componente:
+Ejemplo:
+<hero-detail [hero]="selectedHero"></hero-detail>
+(al componente hero-detail se le pasa a la propiedad hero otro objeto que si se conosca en ese contexto).
+
+14. OnInit
+Es una interface que debe ser importada, esta permite ejecutar acciones al inicio (Angular sabe cuando llamarlo, esa es la diferencia)
+
+----------------------------------------------------------
+15. Async services and Promises
+Al llamar un recurso no se sabe cuanto se puede demorar, angular tampoco bloquea el UI, por lo que se usan promesas.
+Lo cual es una tecnica asynchronous que cambia la firma de cualquier metodo.
+
+Promesa: "cuando se tengan resultados sobre lo que esta pidiendo lo llamo" (es una promesa.. yo le prometo que lo llamo y le doy lo que necesita)
+Los metodos cambian, y quedan: (quien realiza el llamado al recurso externo, ejemplo un servicio)
+getHeroes(): Promise<Hero[]> {
+  return Promise.resolve(HEROES);
+}
+El metodo que llama el servicio (el que le pide la info como el componente) (con then es que se obtiene el valor de la promesa
+(cuando tenga usd la promeso "luego" haga esto))
+getHeroes(): void {
+  this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+}
+
+--------------------------------------------------
+16. Routing
+Es la capacidad de navegar entre paginas,
+Utiliza el modulo RouterModule, la cual tiene varios servicios y directivas:
+RouterOutlet, RouterLink, RouterLinkActive ademas una configut¡racion Routes (en la cual se configuran las rutas).
+
+Ejemplo: (puede ir en un archivo o en el modulo dentro de import)
+import { RouterModule, Routes } from '@angular/router';  (se importa la libreria para manejar las rutas)
+
+RouterModule.forRoot([
+  {
+    path: 'heroes',									//path es la url, ejemplo: localhost/#/heroes
+    component: HeroesComponent						//El componente que debe desplegar cuando llegue al path (/heroes)
+  }
+])
+
+lo cual puede ser encapsulado asi:  (creandolo en otro modulo)  (ng g m AppRouting)
+const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard',  component: DashboardComponent },
+  { path: 'detail/:id', component: HeroDetailComponent },
+  { path: 'heroes',     component: HeroesComponent }
+];
+
+y en el import:
+RouterModule.forRoot(routes)
+
+
+17. <router-outlet>
+debajo de esto se renderizaran los diferentes compònentes (SPA)
+
+Para ir de una pagina a otra.
+<a routerLink="/heroes">Heroes</a>
+
+18. heroes.slice(1, 5)
+Como se obtiene parte de un array.
+
+19. Parameterized route (path con query string)
+{
+  path: 'detail/:id',
+  component: HeroDetailComponent
+},
+
+Obtener los valores de un query string:
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location }                 from '@angular/common';
+import 'rxjs/add/operator/switchMap';
+
+constructor(
+  private heroService: HeroService,
+  private route: ActivatedRoute,
+  private location: Location
+) {}
+
+ ngOnInit(): void {
+  this.route.paramMap
+    .switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))  //El + es porque el recibe todo en string, con + lo pasa a numero
+    .subscribe(hero => this.hero = hero);
+  }
+  
+  
+this.location.back(); // le permite devolverse a la ruta anterior.
+
+
+20. Pipes
+Agregan funcionalidad dentro del DOM.
+{{selectedHero.name | uppercase}} is my hero
+
+21. Navegar desde el back:
+this.router.navigate(['/detail', this.selectedHero.id]);
+
+22. routerLinkActive
+ you can use to add a class to the HTML navigation element whose route matches the active route. All you have to do is define the style for it.
+ 
+23. Estilos
+Cada componente maneja sus estilos o se pueden manejar estilos globales.
+
+ 
+ -----------------------
+ 24. Http para llamar servicios:
+ Importe en el modulo HttpModule:
+ 
+ import { HttpModule }    from '@angular/http';
+ 
+ y coloquelo en el import
+  
+ Para simular servicios:
+ // Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
+instale un simulador de servicios:
+npm install angular-in-memory-web-api --save
+
+
+para realizar consultas Http:
+
+import { Injectable }    from '@angular/core';
+import { Headers, Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import { Hero } from './hero';
+
+private heroesUrl = 'api/heroes';  // URL to web api
+constructor(private http: Http) { }
+
+getHeroes(): Promise<Hero[]> {
+  return this.http.get(this.heroesUrl)
+             .toPromise()
+             .then(response => response.json().data as Hero[])
+             .catch(this.handleError);
+}
+ 
+private handleError(error: any): Promise<any> {
+  console.error('An error occurred', error); // for demo purposes only
+  return Promise.reject(error.message || error);
+}
+
+
+crear componentes:
+ng g c HomeSearch --module=app.module.ts
+
+
+
+ 
+ 
+
+
+
+
+
+
+
 

@@ -1,0 +1,10 @@
+<p>
+  Convocatoria 
+</p>
+<div *ngIf="convocatory" >
+Nombre: {{convocatory.name}}
+Capacity: {{convocatory.capacity}}
+<button (click)="goBack()" >back</button>
+<!--<app-convocatory-apply></app-convocatory-apply>-->
+<app-single-upload-file></app-single-upload-file>
+</div>

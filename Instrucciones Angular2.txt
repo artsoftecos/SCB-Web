@@ -286,6 +286,23 @@ private handleError(error: any): Promise<any> {
 crear componentes:
 ng g c HomeSearch --module=app.module.ts
 
+----------------------------------
+25. Carga documentos:
+  https://www.npmjs.com/package/ng2-file-upload  (instalar)
+  http://xameeramir.github.io/Implementing-ng-file-upload-in-Angular-2-app/  (como meterlo en Angular 2)
+  
+  http://valor-software.com/ng2-file-upload/ 
+  https://github.com/valor-software/ng2-file-upload
+  
+  
+npm i ng2-file-upload --save
+
+habilitar CORS: https://spring.io/guides/gs/rest-service-cors/
+https://spring.io/blog/2015/06/08/cors-support-in-spring-framework
+
+
+26. Install bootstrap
+npm install bootstrap@3
 
 
  

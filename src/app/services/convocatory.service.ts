@@ -20,6 +20,14 @@ export class ConvocatoryService {
              .catch(this.handleError);
  }
  
+ getConvocatory(id: number): Promise<Convocatory> {
+  const url = `${this.convocatoryUrl}/${id}`;
+  return this.http.get(url)
+    .toPromise()
+    .then(response => response.json().data as Convocatory)
+    .catch(this.handleError);
+}
+
 private handleError(error: any): Promise<any> {
   console.error('An error occurred', error); // for demo purposes only
   return Promise.reject(error.message || error);

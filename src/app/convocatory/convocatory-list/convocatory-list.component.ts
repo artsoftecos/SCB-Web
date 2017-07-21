@@ -28,7 +28,7 @@ export class ConvocatoryListComponent implements OnInit {
   }
 
   goToDetail(convocatory: Convocatory) {
-    this.errorMessage="Not implemented Go to detail";
+    this.router.navigate(['/convocatory', convocatory.id]);    
   }
   
   apply(convocatory: Convocatory) {

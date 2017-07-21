@@ -6,11 +6,11 @@ import { HttpModule }    from '@angular/http';
 
 //Modulos
 import { ConvocatoryModule } from './convocatory/convocatory.module'
-import { ConvocatoryRoutingModule } from './convocatory/convocatory-routing.module'
+import { ConvocatoryRoutingModule } from './convocatory/convocatory-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent    
+    AppComponent
   ],
   imports: [
     BrowserModule,

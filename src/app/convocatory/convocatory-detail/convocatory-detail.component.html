@@ -6,5 +6,5 @@ Nombre: {{convocatory.name}}
 Capacity: {{convocatory.capacity}}
 <button (click)="goBack()" >back</button>
 <!--<app-convocatory-apply></app-convocatory-apply>-->
-<app-upload-drag-drop-file></app-upload-drag-drop-file>
+<app-upload-drag-drop-file [allowedMimeType]="['image/png', 'application/pdf']" [maxFileSize]="1000576"></app-upload-drag-drop-file>
 </div>

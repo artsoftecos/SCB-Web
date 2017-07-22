@@ -1,7 +1,10 @@
 <p>
   Demo carga de archivos!
+  En el HTML se valida:
+  - Tipos de archivos pérmitidos (solo PNG)
+  - Maximo tamaño de archivo: 1 MB
 </p>
-<app-upload-selection-file></app-upload-selection-file>
-<app-upload-multiple-file></app-upload-multiple-file>
-<app-single-upload-file></app-single-upload-file>
-<app-upload-drag-drop-file></app-upload-drag-drop-file>
+<app-upload-selection-file [allowedMimeType]="['image/png']" [maxFileSize]="1000576"></app-upload-selection-file>
+<app-upload-multiple-file [allowedMimeType]="['image/png']" [maxFileSize]="1000576"></app-upload-multiple-file>
+<app-single-upload-file [allowedMimeType]="['image/png']" [maxFileSize]="1000576"></app-single-upload-file>
+<app-upload-drag-drop-file [allowedMimeType]="['image/png', 'application/pdf']" [maxFileSize]="1000576"></app-upload-drag-drop-file>

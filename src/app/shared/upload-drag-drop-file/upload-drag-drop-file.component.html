@@ -1,44 +1,32 @@
-<nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                            <li><a>File Upload</a></li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                </nav>
-                <div class="container">
+<div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <form>   
-                               <h3>Select files</h3>
-                              Error: <span style="color:red;" >{{errorMessage}}</span>
+                            <form>                                  
+                              <span style="color:red;" >{{errorMessage}}</span>
  <div class="form-group">
             <div ng2FileDrop
                  [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
                  (fileOver)="fileOverBase($event)"
                  [uploader]="uploader"
                  class="well my-drop-zone">
-                Base drop zone
+                coloque los archivos a cargar en este lugar
             </div>
  </div> 
         
                             </form>
                         </div>
                         <div class="col-md-8">
-                            <h3>File Upload with Angular 2 and Node</h3>
-                            Queue length: {{ uploader?.queue?.length }}
+                            <h3>Estos son los archivos a cargar!</h3>
+                            Cantidad de archivos faltantes a cargar: {{ uploader?.queue?.length }}
 
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th width="50%">Name</th>
-                                    <th>Size</th>
-                                    <th>Progress</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
+                                    <th width="50%">Nombre</th>
+                                    <th>Tamaño</th>
+                                    <th>Progreso</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -58,15 +46,15 @@
                                     <td nowrap>
                                         <button type="button" class="btn btn-success btn-xs"
                                                 (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
-                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                            <span class="glyphicon glyphicon-upload"></span> Cargar
                                         </button>
                                         <button type="button" class="btn btn-warning btn-xs"
                                                 (click)="item.cancel()" [disabled]="!item.isUploading">
-                                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                            <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
                                         </button>
                                         <button type="button" class="btn btn-danger btn-xs"
                                                 (click)="item.remove()">
-                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                            <span class="glyphicon glyphicon-trash"></span> Remover
                                         </button>
                                     </td>
                                 </tr>
@@ -75,22 +63,22 @@
 
                             <div>
                                 <div>
-                                    Queue progress:
-                                    <div class="progress" style="">
+                                    Cantidad de archivos cargados:
+                                    <div class="progress">
                                         <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-success btn-s"
                                         (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
-                                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                                    <span class="glyphicon glyphicon-upload"></span> Cargar todo
                                 </button>
                                 <button type="button" class="btn btn-warning btn-s"
                                         (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
-                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancelar todo
                                 </button>
                                 <button type="button" class="btn btn-danger btn-s"
                                         (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
-                                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                                    <span class="glyphicon glyphicon-trash"></span> Remover todo
                                 </button>
                             </div>
                         </div>

@@ -1,11 +1,20 @@
-<p>
-  Convocatoria 
-</p>
 <div *ngIf="convocatory" >
-Nombre: {{convocatory.name}}
-Capacity: {{convocatory.capacity}}
-<button (click)="goBack()" >back</button>
-<!--<app-convocatory-apply></app-convocatory-apply>-->
-<app-upload-drag-drop-file [allowedMimeType]="['image/png', 'application/pdf']" 
-[maxFileSize]="1000576" [documento]="12" [service]="'applyConvocatory'" ></app-upload-drag-drop-file>
+  <div class="page-header">
+    <h1>Convocatoria {{convocatory.name}}</h1>
+  </div>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Cupos: </label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{convocatory.capacity}}</p>
+    </div>
+  </div>   
+  <app-convocatory-apply [document]="123456789" ></app-convocatory-apply>
+</form>
+
+<button (click)="goBack()" ><span class="glyphicon glyphicon-arrow-left" aria-hidden="true" >
+  </span>back</button>
+
+
 </div>

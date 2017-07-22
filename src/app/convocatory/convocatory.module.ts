@@ -14,7 +14,7 @@ import { SharedModule } from '../shared/shared.module'
 //Components
 import { ConvocatoryListComponent } from './convocatory-list/convocatory-list.component';
 import { ConvocatoryDetailComponent } from './convocatory-detail/convocatory-detail.component';
-
+import { ConvocatoryApplyComponent } from './convocatory-apply/convocatory-apply.component';
 
 //Services
 import { ConvocatoryService } from '../services/convocatory.service'
@@ -29,7 +29,8 @@ import { ConvocatoryService } from '../services/convocatory.service'
   ],
   declarations: [ //Components
     ConvocatoryListComponent,
-    ConvocatoryDetailComponent
+    ConvocatoryDetailComponent,
+    ConvocatoryApplyComponent
   ], 
   exports: [ConvocatoryRoutingModule],
   providers: [ConvocatoryService]

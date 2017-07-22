@@ -11,13 +11,15 @@ import { SharedModule } from './shared/shared.module'
 
 //Components
 import { DemoUploadFilesComponent } from './Demos/demo-upload-files/demo-upload-files.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
    //se puede eliminar, si se quita el demo de arhivos
-    DemoUploadFilesComponent
+    DemoUploadFilesComponent,
+   HomeComponent
   ],
   imports: [
     BrowserModule,

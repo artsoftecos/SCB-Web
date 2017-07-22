@@ -1,5 +1,5 @@
 <h2>Convocatorias</h2>
-<a *ngFor="let convocatory of convocatories">
+<!--<a *ngFor="let convocatory of convocatories">
     <label>Name: </label> <span>{{convocatory.name}}</span>    
     <label>Capacity: </label> <span>{{convocatory.capacity}}</span>
     <button (click)="goToDetail(convocatory); $event.stopPropagation()">Go Detail</button>
@@ -8,3 +8,45 @@
 <div>  
   <span>{{errorMessage}}</span>
 </div>
+-->
+<div>  
+  <span>{{errorMessage}}</span>
+</div>
+
+<table class="table table-condensed">
+  <tr> 
+    <th>Nombre</th> 
+    <th>Cupos</th>
+  </tr>
+  <tr *ngFor="let convocatory of convocatories">
+    <td>
+         <span>{{convocatory.name}}</span> 
+    </td>
+    <td>
+         <span>{{convocatory.capacity}}</span> 
+    </td>
+        <td>
+                
+           <button (click)="goToDetail(convocatory); $event.stopPropagation()"> 
+              <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>   Go Detail
+            </button>
+   <!-- <button (click)="apply(convocatory); $event.stopPropagation()">Apply</button>-->
+        </td>
+  <tr>
+</table>
+
+
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<!--
+<div class="row">
+  <div class="col-xs-6 col-md-4">Nombre</div>
+  <div class="col-xs-6 col-md-4">Cupos</div>
+  <div class="col-xs-6 col-md-4"></div>
+</div>
+<div class="row" *ngFor="let convocatory of convocatories">
+  <div class="col-xs-6 col-md-4">{{convocatory.name}}</div>
+  <div class="col-xs-6 col-md-4">{{convocatory.capacity}}</div>
+  <div class="col-xs-6 col-md-4"><button (click)="goToDetail(convocatory); $event.stopPropagation()"> 
+              <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>   Go Detail
+            </button></div>
+</div>-->

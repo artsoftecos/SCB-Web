@@ -3,7 +3,7 @@ import { FileUploader } from 'ng2-file-upload';
 
 
 //const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
-const URL = 'http://localhost:8080/'
+const URL = 'http://localhost:8080/api'
 
 @Component({
   moduleId: module.id,
@@ -28,7 +28,7 @@ constructor() {
         {name: 'Access-Control-Allow-Credentials', value: 'false'},
         {name:'Access-Control-Allow-Origin', value: '*'}
       ],
-      allowedMimeType: ['image/png'],
+     // allowedMimeType: ['image/png'],
       maxFileSize: 1024*1024
     });
   }

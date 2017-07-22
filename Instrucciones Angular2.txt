@@ -291,6 +291,7 @@ ng g c HomeSearch --module=app.module.ts
   https://www.npmjs.com/package/ng2-file-upload  (instalar)
   http://xameeramir.github.io/Implementing-ng-file-upload-in-Angular-2-app/  (como meterlo en Angular 2)
   
+  https://ciphertrick.com/2016/10/24/file-upload-with-angular2-nodejs/
   http://valor-software.com/ng2-file-upload/ 
   https://github.com/valor-software/ng2-file-upload
   

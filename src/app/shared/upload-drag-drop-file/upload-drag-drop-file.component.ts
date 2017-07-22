@@ -1,7 +1,6 @@
 import { Component, Input, OnInit  } from '@angular/core';
 import { FileUploader, FileLikeObject } from 'ng2-file-upload';
-
-const URL = 'http://localhost:8080/selectionDragDrop'
+import { environment } from '../../../environments/environment';
 
 @Component({
   moduleId: module.id,
@@ -18,6 +17,10 @@ export class UploadDragDropFileComponent implements OnInit{
   allowedMimeType: string[];
   @Input()
   maxFileSize: number;
+  @Input()
+  documento: number;
+  @Input()
+  service: string;
 
   ngOnInit() {
     this.initUpload();
@@ -26,8 +29,15 @@ export class UploadDragDropFileComponent implements OnInit{
   }
 
  initUpload() {
+    var apiUrl = environment.apiUrl;   
+    var url = apiUrl + "/" + this.service;
+    
+ /*additionalParameter?: {
+        [key: string]: any;
+ };*/
+
     this.uploader = new FileUploader({
-      url: URL,
+      url: url,
       method: 'POST',
       headers: [
         {name: 'Access-Control-Allow-Credentials', value: 'false'},
@@ -37,13 +47,16 @@ export class UploadDragDropFileComponent implements OnInit{
       maxFileSize: this.maxFileSize
     });
      this.uploader.onWhenAddingFileFailed = (item, filter, options) => this.onWhenAddingFileFailed(item, filter, options);     
+     this.uploader.onBuildItemForm = (item, form) => {
+        form.append('documento', this.documento);
+      };
   }
 
   public fileOverBase(e:any):void {
     console.log('fileOverBase');
     this.hasBaseDropZoneOver = e;
   }
-
+  
    onWhenAddingFileFailed(item: FileLikeObject, filter: any, options: any) {
      console.log('HAY ERROR');
         switch (filter.name) {

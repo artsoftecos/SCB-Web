@@ -1,7 +1,6 @@
 import { Component, Input, OnInit  } from '@angular/core';
 import { FileUploader, FileLikeObject } from 'ng2-file-upload';
-
-const URL = 'http://localhost:8080/selectionSingleMultiple'
+import { environment } from '../../../environments/environment';
 
 @Component({
   moduleId: module.id,
@@ -9,7 +8,7 @@ const URL = 'http://localhost:8080/selectionSingleMultiple'
   templateUrl: './upload-selection-file.component.html',
   styleUrls: ['./upload-selection-file.component.css']
 })
-export class UploadSelectionFileComponent {
+export class UploadSelectionFileComponent implements OnInit {
 
   public uploader:FileUploader;
 
@@ -19,6 +18,10 @@ export class UploadSelectionFileComponent {
   allowedMimeType: string[];
   @Input()
   maxFileSize: number;
+  @Input()
+  documento: number;
+  @Input()
+  service: string;
 
   ngOnInit() {
     this.initUpload();
@@ -27,8 +30,11 @@ export class UploadSelectionFileComponent {
   }
 
  initUpload() {
+   var apiUrl = environment.apiUrl;   
+   var url = apiUrl + "/" + this.service;
+
     this.uploader = new FileUploader({
-      url: URL,
+      url: url,
       method: 'POST',
       headers: [
         {name: 'Access-Control-Allow-Credentials', value: 'false'},
@@ -38,6 +44,9 @@ export class UploadSelectionFileComponent {
       maxFileSize: this.maxFileSize
     });
      this.uploader.onWhenAddingFileFailed = (item, filter, options) => this.onWhenAddingFileFailed(item, filter, options);     
+     this.uploader.onBuildItemForm = (item, form) => {
+        form.append('documento', this.documento);
+      };
   }
 
    onWhenAddingFileFailed(item: FileLikeObject, filter: any, options: any) {

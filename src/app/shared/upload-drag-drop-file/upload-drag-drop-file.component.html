@@ -12,11 +12,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <form>                              
-                                <div class="form-group">
-                                    <label for="single">single</label>
-                                    <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />                                  
-                                </div>            
+                            <form>   
+                               <h3>Select files</h3>
+ <div class="form-group">
+            <div ng2FileDrop
+                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)"
+                 [uploader]="uploader"
+                 class="well my-drop-zone">
+                Base drop zone
+            </div>
+ </div> 
+        
                             </form>
                         </div>
                         <div class="col-md-8">

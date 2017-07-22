@@ -6,20 +6,29 @@ import { HttpModule }    from '@angular/http';
 
 //Modulos
 import { ConvocatoryModule } from './convocatory/convocatory.module'
-import { ConvocatoryRoutingModule } from './convocatory/convocatory-routing.module';
+import { AppRoutingModule } from './app-routing.module'
+import { SharedModule } from './shared/shared.module'
+
+//Components
+import { DemoUploadFilesComponent } from './Demos/demo-upload-files/demo-upload-files.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   //se puede eliminar, si se quita el demo de arhivos
+    DemoUploadFilesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     ConvocatoryModule,
-    ConvocatoryRoutingModule,
-    HttpModule
+    AppRoutingModule,
+    HttpModule,
+    SharedModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule { }

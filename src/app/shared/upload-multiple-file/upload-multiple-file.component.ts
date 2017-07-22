@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 
-
-//const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
-const URL = 'http://localhost:8080/selectionSingle'
+const URL = 'http://localhost:8080/selectionMultiple'
 
 @Component({
   moduleId: module.id,
-  selector: 'app-single-upload-file',
-  templateUrl: './upload-single-file.component.html',
-  styleUrls: ['./upload-single-file.component.css']
+  selector: 'app-upload-multiple-file',
+  templateUrl: './upload-multiple-file.component.html',
+  styleUrls: ['./upload-multiple-file.component.css']
 })
-export class UploadSingleFileComponent {
-  public uploader:FileUploader;
+export class UploadMultipleFileComponent {
 
+  public uploader:FileUploader;
+  
   constructor() {
     this.initUpload();
   }

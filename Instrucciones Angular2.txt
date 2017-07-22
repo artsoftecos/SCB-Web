@@ -1,4 +1,4 @@
-Instrucciones
+﻿Instrucciones
 
 *Alguna documentacion:
 https://angular.io/guide/quickstart
@@ -308,8 +308,9 @@ https://www.npmjs.com/package/ng2-uploader
 npm install bootstrap@3
 
 
- 
- 
+---------------------------
+26. Compatir modulos y componentes (modulo shared importado en los otros modulos)
+https://johnpapa.net/introducing-angular-modules-feature-modules-2/
 
 
 

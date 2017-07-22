@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                             <li><a>File Upload</a></li>
                             </ul>
@@ -12,11 +12,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <form>                              
+                            <form>
                                 <div class="form-group">
-                                    <label for="single">single</label>
-                                    <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />                                  
-                                </div>            
+                                    <label for="multiple">Multiple</label>
+                                    <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  />
+                                </div>                                      
                             </form>
                         </div>
                         <div class="col-md-8">
@@ -88,3 +88,4 @@
                         </div>
                     </div>
                 </div>
+

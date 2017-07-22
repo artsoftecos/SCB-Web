@@ -6,7 +6,6 @@ import { ConvocatoryListComponent } from './convocatory-list/convocatory-list.co
 import { ConvocatoryDetailComponent } from './convocatory-detail/convocatory-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/convocatories', pathMatch: 'full' },
   { path: 'convocatories',  component: ConvocatoryListComponent },
   { path: 'convocatory/:id',  component: ConvocatoryDetailComponent },
   //{ path: 'convocatory/:id', component: HeroDetailComponent },  
@@ -14,7 +13,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ],
   exports: [RouterModule],
   declarations: []

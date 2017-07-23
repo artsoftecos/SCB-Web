@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 export class UploadSingleFileComponent implements OnInit {
   public uploader:FileUploader;
 
-  private errorMessage : string;
+  public errorMessage : string;
   
   @Input()  
   allowedMimeType: string[];

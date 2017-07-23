@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 export class UploadDragDropFileComponent implements OnInit{  
   public uploader:FileUploader;
   public hasBaseDropZoneOver:boolean = false;
-  private errorMessage : string;
+  public errorMessage : string;
   
   @Input()  
   allowedMimeType: string[];
@@ -32,10 +32,6 @@ export class UploadDragDropFileComponent implements OnInit{
     var apiUrl = environment.apiUrl;   
     var url = apiUrl + "/" + this.service;
     
- /*additionalParameter?: {
-        [key: string]: any;
- };*/
-
     this.uploader = new FileUploader({
       url: url,
       method: 'POST',

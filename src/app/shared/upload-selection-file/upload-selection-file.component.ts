@@ -12,7 +12,7 @@ export class UploadSelectionFileComponent implements OnInit {
 
   public uploader:FileUploader;
 
-  private errorMessage : string;
+  public errorMessage : string;
   
   @Input()  
   allowedMimeType: string[];

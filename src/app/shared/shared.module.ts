@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileUploadModule } from 'ng2-file-upload';
+import {ToastyModule} from 'ng2-toasty';
 
 //components
 //se puede eliminar, si se quita el demo de arhivos
@@ -12,7 +13,8 @@ import { UploadDragDropFileComponent } from './upload-drag-drop-file/upload-drag
 @NgModule({
   imports: [
     CommonModule,
-    FileUploadModule
+    FileUploadModule,
+    ToastyModule.forRoot()
   ],  
   declarations: [
     UploadSingleFileComponent,

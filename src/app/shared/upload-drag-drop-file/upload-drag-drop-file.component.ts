@@ -1,6 +1,7 @@
 import { Component, Input, OnInit  } from '@angular/core';
 import { FileUploader, FileLikeObject, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 import { environment } from '../../../environments/environment';
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 
 @Component({
   moduleId: module.id,
@@ -22,11 +23,29 @@ export class UploadDragDropFileComponent implements OnInit{
   @Input()
   service: string;
 
+   toastOptions:ToastOptions = {
+            title: "",
+            msg: "",
+            showClose: true,
+            timeout: 5000,
+            theme: 'material',         
+            onAdd: (toast:ToastData) => {
+                //console.log('Toast ' + toast.id + ' has been added!');
+            },
+            onRemove: function(toast:ToastData) {
+                //console.log('Toast ' + toast.id + ' has been removed!');
+            }
+        };
+
   ngOnInit() {
     this.initUpload();
   }
-  constructor() {  
-  }
+  constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig) { 
+        // Assign the selected theme name to the `theme` property of the instance of ToastyConfig. 
+        // Possible values: default, bootstrap, material
+        this.toastyConfig.theme = 'bootstrap';
+        this.toastyConfig.position = 'bottom-right';
+    }
 
  initUpload() {
     var apiUrl = environment.apiUrl;   
@@ -74,8 +93,9 @@ export class UploadDragDropFileComponent implements OnInit{
       console.log("Exitoso envio del archivo");
       console.log(response);
       if (response !== undefined && response != '') {
+        this.addSuccessToast(response);
         /*let data = JSON.parse(response); //success server response
-        alert(data);*/
+        */
       }
     }
 
@@ -83,9 +103,24 @@ export class UploadDragDropFileComponent implements OnInit{
       console.log("Error enviando el archivo");
       console.log(response);
       if (response !== undefined && response != '') {
-
+        this.addErrorToast(response);
         /*let error = JSON.parse(response); //error server response
-        alert(error);*/
+        */
       }
     }
+   
+  addSuccessToast(message: string) {
+      this.toastOptions.msg = message;
+        this.toastyService.success(this.toastOptions);
+    }
+
+    addErrorToast(message: string) {
+        //this.toastyService.info(toastOptions);
+        this.toastOptions.msg = message;
+        this.toastyService.error(this.toastOptions);
+        /*this.toastyService.wait(toastOptions);
+        this.toastyService.error(toastOptions);
+        this.toastyService.warning(toastOptions);*/
+    }
+
 }

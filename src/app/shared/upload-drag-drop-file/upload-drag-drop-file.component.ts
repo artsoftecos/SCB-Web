@@ -1,5 +1,5 @@
 import { Component, Input, OnInit  } from '@angular/core';
-import { FileUploader, FileLikeObject } from 'ng2-file-upload';
+import { FileUploader, FileLikeObject, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -46,6 +46,8 @@ export class UploadDragDropFileComponent implements OnInit{
      this.uploader.onBuildItemForm = (item, form) => {
         form.append('documento', this.documento);
       };
+      this.uploader.onErrorItem = (item, response, status, headers) => this.onErrorItem(item, response, status, headers);
+      this.uploader.onSuccessItem = (item, response, status, headers) => this.onSuccessItem(item, response, status, headers);
   }
 
   public fileOverBase(e:any):void {
@@ -66,5 +68,24 @@ export class UploadDragDropFileComponent implements OnInit{
             default:
                 this.errorMessage = `Unknown error (filter is ${filter.name})`;
         }
+    }
+
+    onSuccessItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
+      console.log("Exitoso envio del archivo");
+      console.log(response);
+      if (response !== undefined && response != '') {
+        /*let data = JSON.parse(response); //success server response
+        alert(data);*/
+      }
+    }
+
+    onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
+      console.log("Error enviando el archivo");
+      console.log(response);
+      if (response !== undefined && response != '') {
+
+        /*let error = JSON.parse(response); //error server response
+        alert(error);*/
+      }
     }
 }

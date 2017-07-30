@@ -39,17 +39,26 @@ import {
   MdDialog,
   MdDialogRef,
 } from '@angular/material';
+import {ToastyModule} from 'ng2-toasty';
 
 //Modulos
 import { ConvocatoryModule } from './convocatory/convocatory.module'
 import { AppRoutingModule } from './app-routing.module'
 import { SharedModule } from './shared/shared.module'
 
+// Simulating HTTP Calls
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 //Components
 import { DemoUploadFilesComponent } from './Demos/demo-upload-files/demo-upload-files.component';
-import { HomeComponent, ModalUsuario } from './home/home.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import {CdkTableModule} from '@angular/cdk';
+
+//services
+import { UserService } from './services/user.service'
 
 import 'hammerjs';
 
@@ -91,7 +100,16 @@ import 'hammerjs';
 })
 export class MaterialModule {}
 
+
 @NgModule({
+  declarations: [
+    AppComponent,
+   //se puede eliminar, si se quita el demo de arhivos
+    DemoUploadFilesComponent,
+   HomeComponent,
+   LoginComponent,
+   ProfileComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -103,18 +121,12 @@ export class MaterialModule {}
     AppRoutingModule,
     SharedModule,
     MdDialogModule,
+    HttpModule,
+    SharedModule,
+    ToastyModule.forRoot()
+    //InMemoryWebApiModule.forRoot(InMemoryUserDataService),
   ],
-  declarations: [
-    AppComponent,
-   //se puede eliminar, si se quita el demo de arhivos
-    DemoUploadFilesComponent,
-    HomeComponent,
-    ModalUsuario,
-  ],
-  entryComponents: [
-    ModalUsuario
-  ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
   exports: []
 })

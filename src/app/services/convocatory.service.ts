@@ -1,8 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http'; //call to services (Http)
-import { Convocatory } from '../models/convocatory';
-
 import 'rxjs/add/operator/toPromise';
+import { Injectable }     from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Convocatory } from '../models/convocatory';
+import {Observable} from 'rxjs/Rx';
+
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ConvocatoryService {
@@ -13,20 +17,33 @@ export class ConvocatoryService {
 
   //Get all convocatories
   //TODO: Pagination?
-  get(): Promise<Convocatory[]> {
+  /*get(): Promise<Convocatory[]> {
   return this.http.get(this.convocatoryUrl)
              .toPromise()
              .then(response => response.json().data as Convocatory[])
              .catch(this.handleError);
- }
+  }*/
  
- getConvocatory(id: number): Promise<Convocatory> {
+  get() : Observable<Convocatory[]> {
+  return this.http.get(this.convocatoryUrl)                        
+        .map((res:Response) => res.json().data as Convocatory[])
+        .catch(this.handleError);
+  }
+
+ /*getConvocatory(id: number): Promise<Convocatory> {
   const url = `${this.convocatoryUrl}/${id}`;
   return this.http.get(url)
     .toPromise()
     .then(response => response.json().data as Convocatory)
     .catch(this.handleError);
-}
+}*/
+
+  getConvocatory(id: number): Observable<Convocatory> {
+    const url = `${this.convocatoryUrl}/${id}`;
+    return this.http.get(url)
+        .map((res:Response) => res.json().data as Convocatory)
+        .catch(this.handleError);
+  }
 
 private handleError(error: any): Promise<any> {
   console.error('An error occurred', error); // for demo purposes only

@@ -24,7 +24,11 @@ export class ConvocatoryListComponent implements OnInit {
   }
 
   getAllConvocatories() {
-    this.convocatoryService.get().then(convocatories => this.convocatories = convocatories);
+    this.convocatoryService.get().subscribe(
+       convocatories => this.convocatories = convocatories,
+        err => { console.log(err)
+      }
+    );
   }
 
   goToDetail(convocatory: Convocatory) {

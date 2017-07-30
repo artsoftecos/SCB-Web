@@ -1,5 +1,85 @@
+  <header>
+    <nav>
+      <div class="nav-wrapper light-blue darken-4">
+        <a href="#" class="brand-logo center">Sistema Central de Becas</a>
+
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a>ICETEX</a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li><a>MIN EDU</a></li>
+          <li><a>LOGO</a></li>
+            <li class="light-blue"><a class="modal-trigger" href="#modal_crear_usuario">Registro</a></li>
+            <!-- <li class="light-blue lighten-1"><a class="modal-trigger" href="#modal_login">Iniciar Sesion</a></li> -->
+            <li class="light-blue lighten-1"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a class="modal-trigger" href="#modal_crear_usuario">Registro</a></li>
+          <li><a>Iniciar Sesion</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+
+
+<router-outlet></router-outlet>
+</main>
+
+
  <!--<nav>
    <a routerLink="/" routerLinkActive="active">Ver Convocatorias</a>
    <a routerLink="/demoUploadFiles" routerLinkActive="active">Ver demo carga archivos</a>     
  </nav>-->
- <router-outlet></router-outlet>
+
+
+<!-- <h1>Bienvenido a SCB - ArtSoft!</h1>
+
+<div *ngIf="user !== undefined && user !== null">
+  <h2>Hola {{ user.name }} !</h2>
+
+  <div *ngIf="user.role == 'Solicitant'">
+    Aca irian links solo de solicitante....
+  </div>
+  <div *ngIf="user.role == 'Administrator'">
+    Aca irian links solo de Admin....
+  </div>
+  <div *ngIf="user.role == 'Oferent'">
+    Aca irian links solo de oferente....
+  </div>
+</div>
+ 
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">    
+    <div class="navbar-header">      
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active">SCB</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a routerLink="/" routerLinkActive="active">Quienes Somos<span class="sr-only"></span></a>
+        </li>
+        <li>
+          <a routerLink="/demoUploadFiles" routerLinkActive="active">Demo carga archivos</a>
+        </li>        
+        <li>
+          <a routerLink="/convocatories" routerLinkActive="active">Ver convocatorias</a>
+        </li>   
+        <li *ngIf="user == undefined || user === null">
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </li>    
+        <li *ngIf="user !== undefined && user !== null">
+          <button (click)="logout();">Logout</button>                   
+       </li>
+      </ul>      
+    </div>
+  </div>
+</nav>
+   <router-outlet></router-outlet>
+
+Footer ---
+   @ArtSoft -->

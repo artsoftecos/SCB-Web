@@ -8,6 +8,7 @@ const CONVOCATORIES: Convocatory[] = [
 */
 
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { TypeRoles } from '../models/type-roles.enum'
 
 export class InMemoryConvocatoryDataService implements InMemoryDbService {
   createDb() {
@@ -16,6 +17,11 @@ export class InMemoryConvocatoryDataService implements InMemoryDbService {
       { id: 2, name: 'Conv. 2', capacity: 3 },
       { id: 3, name: 'Conv. 3', capacity: 10 }      
     ];
-    return {convocatories};
+    const users = [
+      { role: TypeRoles.Administrator,  name: 'soy Admin 1', email: "admin@icetex.gov.co" },
+      { role: TypeRoles.Oferent,  name: 'soy Oferente 1', email: "oferent@carolina.gov.co" },
+      { role: TypeRoles.Solicitant,  name: 'soy silicitante 1', email: "soliciatnte@yo.gov.co" }
+    ];    
+    return {convocatories, users};
   }
 }

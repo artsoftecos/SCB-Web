@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  fullImagePath: string;
 
-  constructor() {         
-    }
+  constructor(public dialog: MdDialog) {       
+    this.fullImagePath = '../../assets/img/img1.jpg'  
+  }
 
   ngOnInit() {
   }

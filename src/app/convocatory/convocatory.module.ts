@@ -24,7 +24,9 @@ import { ConvocatoryService } from '../services/convocatory.service'
     CommonModule,
     ConvocatoryRoutingModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryConvocatoryDataService),
+    InMemoryWebApiModule.forRoot(InMemoryConvocatoryDataService, {      
+      passThruUnknownUrl: true
+    }),
     SharedModule
   ],
   declarations: [ //Components

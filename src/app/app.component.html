@@ -1,4 +1,22 @@
 <h1>Bienvenido a SCB - ArtSoft!</h1>
+
+<div *ngIf="user !== undefined && user !== null">
+  <h2>Hola {{ user.name }} !</h2>
+
+  <!-- links de solicitante -->
+  <div *ngIf="user.role == 'Solicitant'">
+    Aca irian links solo de solicitante....
+  </div>
+  <div *ngIf="user.role == 'Administrator'">
+    Aca irian links solo de Admin....
+  </div>
+  <div *ngIf="user.role == 'Oferent'">
+    Aca irian links solo de oferente....
+  </div>
+</div>
+ 
+
+
 <!-- navigation -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">    
@@ -17,7 +35,13 @@
         </li>        
         <li>
           <a routerLink="/convocatories" routerLinkActive="active">Ver convocatorias</a>
-        </li>        
+        </li>   
+        <li *ngIf="user == undefined || user === null">
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </li>    
+        <li *ngIf="user !== undefined && user !== null">
+          <button (click)="logout();">Logout</button>                   
+       </li>
       </ul>      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

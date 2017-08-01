@@ -6,6 +6,7 @@ import { UserLogin } from '../models/userLogin';
 import { User } from '../models/user'
 import {Observable} from 'rxjs/Rx';
 import { environment } from '../../environments/environment'
+import { TypeRoles } from '../models/type-roles.enum';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -21,6 +22,16 @@ export class UserService {
   //private userUrl = 'api/users';  // URL to web api //TODO: This could be moved to DEV property
 
   constructor(private http: Http) { }
+
+  getUsers(): User[] 
+  {
+    let users = [
+      { role: TypeRoles.Administrator,  name: 'soy Admin 1', email: "admin@icetex.gov.co" },
+      { role: TypeRoles.Oferent,  name: 'soy Oferente 1', email: "oferent@carolina.gov.co" },
+      { role: TypeRoles.Solicitant,  name: 'soy silicitante 1', email: "soliciatnte@yo.gov.co" }
+    ]; 
+    return users;
+  }
 
   //Get all convocatories
   //TODO: Pagination?

@@ -45,6 +45,7 @@ import {ToastyModule} from 'ng2-toasty';
 import { ConvocatoryModule } from './convocatory/convocatory.module'
 import { AppRoutingModule } from './app-routing.module'
 import { SharedModule } from './shared/shared.module'
+import { UserModule } from './user/user.module';
 
 // Simulating HTTP Calls
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -123,6 +124,7 @@ export class MaterialModule {}
     MdDialogModule,
     HttpModule,
     SharedModule,
+    UserModule,
     ToastyModule.forRoot()
     //InMemoryWebApiModule.forRoot(InMemoryUserDataService),
   ],

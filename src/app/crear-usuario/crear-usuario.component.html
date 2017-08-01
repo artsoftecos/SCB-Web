@@ -1,0 +1,198 @@
+<div class="row">
+	<div class="col s12 m10 offset-m1">
+		<h5 class="center-align">Creacion de usuario</h5>
+
+		<div class="col s12">
+			<ul class="tabs" id="tab_modal_crear_usuario">
+				<li class="tab col s6"><a form="form_solicitante" class="active" href="#div_solicitante">Solicitante</a></li>
+				<li class="tab col s6"><a form="form_oferente" class="" href="#div_oferente">Oferente</a></li>
+			</ul>
+		</div>
+		<div id="div_solicitante" class="col s12">
+			<form id="form_solicitante">
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input id="first_name" type="text" class="validate">
+						<label for="first_name">Nombres</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">Apellidos</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<!-- <select id="tipo_identificacion">
+							<option value="1">CC</option>
+							<option value="2">TI</option>
+							<option value="3">CE</option>
+						</select>
+						<label>Tipo indentificacion</label> -->
+						<md-select placeholder="State">
+						 <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
+						   <!-- <md-option>CC</md-option>
+						   <md-option>TI</md-option>
+						   <md-option>CE</md-option> -->
+						</md-select>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="identificacion" type="text" class="validate">
+						<label for="identificacion">Identificacion</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="telefono" type="text" class="validate">
+						<label for="telefono">Telefono</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="email" type="email" class="validate">
+						<label for="email">Correo Electronico</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="password" type="password" class="validate">
+						<label for="password">Contraseña</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="password_2" type="password" class="validate">
+						<label for="password_2">Repetir Contraseña</label>
+					</div>
+					<div class="input-field col s12">
+						<h3>CAPTCHA</h3>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="div_oferente" class="col s12">
+			<form id="form_oferente">
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input id="nombres" type="text" class="validate">
+						<label for="nombres">Nombres</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="apellidos" type="text" class="validate">
+						<label for="apellidos">Apellidos</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="email" type="email" class="validate">
+						<label for="email">Correo Electronico</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="identificacion" type="text" class="validate">
+						<label for="identificacion">NIT</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="telefono" type="text" class="validate">
+						<label for="telefono">Telfono</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="direccion" type="text" class="validate">
+						<label for="direccion">Direccion</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="contrasena_1" type="password" class="validate">
+						<label for="contrasena_1">Contraseña</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="contrasena_2" type="password" class="validate">
+						<label for="contrasena_2">Repetir Contraseña</label>
+					</div>
+					<div class="input-field col s12">
+						<h3>CAPTCHA</h3>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- <md-tab-group>
+		  <md-tab label="Solicitante">
+				<div id="div_solicitante" class="col s12">
+					<form id="form_solicitante">
+						<div class="row">
+							<div class="input-field col s12 m6">
+								<input id="first_name" type="text" class="validate">
+								<label for="first_name">Nombres</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<input id="last_name" type="text" class="validate">
+								<label for="last_name">Apellidos</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<select id="tipo_identificacion">
+									<option value="1">CC</option>
+									<option value="2">TI</option>
+									<option value="3">CE</option>
+								</select>
+								<label>Tipo indentificacion</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<input id="identificacion" type="text" class="validate">
+								<label for="identificacion">Identificacion</label>
+							</div>
+							<div class="input-field col s12">
+								<input id="telefono" type="text" class="validate">
+								<label for="telefono">Telefono</label>
+							</div>
+							<div class="input-field col s12">
+								<input id="email" type="email" class="validate">
+								<label for="email">Correo Electronico</label>
+							</div>
+							<div class="input-field col s12">
+								<input id="password" type="password" class="validate">
+								<label for="password">Contraseña</label>
+							</div>
+							<div class="input-field col s12">
+								<input id="password_2" type="password" class="validate">
+								<label for="password_2">Repetir Contraseña</label>
+							</div>
+							<div class="input-field col s12">
+								<h3>CAPTCHA</h3>
+							</div>
+						</div>
+					</form>
+				</div>
+		  </md-tab>
+		  <md-tab label="Oferente">
+				<div id="div_oferente" class="col s12">
+					<form id="form_oferente">
+						<div class="row">
+							<div class="input-field col s12 m6">
+								<input id="nombres" type="text" class="validate">
+								<label for="nombres">Nombres</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<input id="apellidos" type="text" class="validate">
+								<label for="apellidos">Apellidos</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<input id="email" type="email" class="validate">
+								<label for="email">Correo Electronico</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<input id="identificacion" type="text" class="validate">
+								<label for="identificacion">NIT</label>
+							</div>
+							<div class="input-field col s12">
+								<input id="telefono" type="text" class="validate">
+								<label for="telefono">Telfono</label>
+							</div>
+							<div class="input-field col s12">
+								<input id="direccion" type="text" class="validate">
+								<label for="direccion">Direccion</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<input id="contrasena_1" type="password" class="validate">
+								<label for="contrasena_1">Contraseña</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<input id="contrasena_2" type="password" class="validate">
+								<label for="contrasena_2">Repetir Contraseña</label>
+							</div>
+							<div class="input-field col s12">
+								<h3>CAPTCHA</h3>
+							</div>
+						</div>
+					</form>
+				</div>
+		  </md-tab>
+		</md-tab-group> -->
+
+		<a class="waves-effect waves-light btn center-align" id="crear_usuario">Crear usuario</a>
+	</div>
+</div>

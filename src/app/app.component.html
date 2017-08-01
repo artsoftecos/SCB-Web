@@ -10,11 +10,24 @@
         <ul class="right hide-on-med-and-down">
           <li><a>MIN EDU</a></li>
           <li><a>LOGO</a></li>
-            <li class="light-blue"><a class="modal-trigger" href="#modal_crear_usuario">Registro</a></li>
-            <!-- <li class="light-blue lighten-1"><a class="modal-trigger" href="#modal_login">Iniciar Sesion</a></li> -->
-            <li class="light-blue lighten-1"><a routerLink="/login" routerLinkActive="active">Login</a></li>
-            <li>
+             <li  *ngIf="user == null" class="light-blue"><a class="modal-trigger" href="#modal_crear_usuario">Registro</a></li>
+            <!-- <li class="light-blue lighten-1"><a class="modal-trigger" href="#modal_login">Iniciar Sesion</a></li> -->            
+            <li  *ngIf="user == null" class="light-blue lighten-1">
+              <a routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+              <li *ngIf="user !== undefined && user !== null && user.role == 'Solicitant'">
+              <a routerLink="/convocatories" routerLinkActive="active">Ver convocatorias</a>
+                </li>  
+              <li *ngIf="user !== undefined && user !== null && user.role == 'Administrator'">
            <a routerLink="/users" routerLinkActive="active">Ver usuarios</a>
+             </li>
+
+               <li *ngIf="user !== undefined && user !== null">
+                <a (click)="logout();">Logout</a>                   
+                 </li>
+
+            <li>
+  
           </li>
         </ul>
         <ul class="side-nav" id="mobile-demo">

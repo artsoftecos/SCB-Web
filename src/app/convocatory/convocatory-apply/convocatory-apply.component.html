@@ -21,5 +21,7 @@
     <label class="col-sm-2 control-label">- foto (formato png)</label>   
   </div>   
 
-<app-upload-drag-drop-file [allowedMimeType]="['image/png', 'application/pdf']" 
-[maxFileSize]="1000576" [documento]="document" [service]="'convocatoria/aplicar'" ></app-upload-drag-drop-file>
+<!--<app-upload-drag-drop-file [allowedMimeType]="['image/png', 'application/pdf']" 
+[maxFileSize]="1000576" [documento]="document" [service]="'convocatoria/aplicar'" ></app-upload-drag-drop-file>-->
+<app-upload-multiple-file [allowedMimeType]="['image/png', 'application/pdf']" 
+[maxFileSize]="1000576" [documento]="document" [service]="'convocatoria/aplicar'" ></app-upload-multiple-file>

@@ -1,0 +1,51 @@
+body {
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+}
+
+main {
+flex: 1 0 auto;
+}
+
+.tabs .indicator {
+    background-color: #283593 !important;
+}
+li.tab > a{
+	color: #283593 !important;
+}
+.brand-logo{
+	font-size: 2.1rem !important;
+}
+#modal_login{
+	min-height: 370px;
+}
+
+.promo i {
+    margin: 40px 0;
+    color: #ee6e73;
+    font-size: 7rem;
+    display: block;
+}
+
+.home-icons{
+	margin-bottom: 0px !important;
+	color: #565656 !important;
+}
+.promo-caption, .light{
+	margin: 0px !important;
+}
+.promo-example{
+	color: black !important;
+}
+.parallax-container {
+    height: 300px !important;
+}
+@media only screen and (max-width: 600px) {
+	.brand-logo{
+		font-size: 1rem !important;
+	}
+	.modal .modal-content{
+		padding: 0px !important;
+	}
+}

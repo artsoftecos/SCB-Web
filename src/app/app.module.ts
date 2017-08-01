@@ -55,6 +55,7 @@ import { DemoUploadFilesComponent } from './Demos/demo-upload-files/demo-upload-
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component'
 
 import {CdkTableModule} from '@angular/cdk';
 
@@ -109,7 +110,8 @@ export class MaterialModule {}
     DemoUploadFilesComponent,
    HomeComponent,
    LoginComponent,
-   ProfileComponent
+   ProfileComponent,
+   CrearUsuarioComponent
   ],
   imports: [
     BrowserModule,

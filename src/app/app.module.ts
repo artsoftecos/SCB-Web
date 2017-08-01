@@ -4,6 +4,8 @@ import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { HttpModule }    from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterializeModule } from 'angular2-materialize';
+
 import {
   MdAutocompleteModule,
   MdButtonModule,
@@ -117,7 +119,7 @@ export class MaterialModule {}
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     HttpModule,
     MaterialModule,
-
+MaterializeModule,
     ConvocatoryModule,
     AppRoutingModule,
     SharedModule,

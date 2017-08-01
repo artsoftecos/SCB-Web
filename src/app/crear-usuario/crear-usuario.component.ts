@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 import { MdSelectModule } from '@angular/material';
 
 @Component({
@@ -20,5 +19,4 @@ export class CrearUsuarioComponent implements OnInit {
 
 	ngOnInit() {
 	}
-
 }

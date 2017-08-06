@@ -1,0 +1,19 @@
+Urls de ayuda:
+https://www.youtube.com/watch?v=R5DzlnnS8TU
+https://github.com/InfomediaLtd/angular2-materialize
+
+
+https://www.npmjs.com/package/angular2-materialize
+seguir esta parte (de laurl de arriba):
+Installing & configuring angular2-materialize in projects created with the Angular CLI
+
+
+ng new [proyecto]
+cd [proyecto]
+npm install
+npm install materialize-css --save
+Solo si hay problema con unmmet core 4.. -> npm install -g @angular/cli
+npm install angular2-materialize --save
+npm install jquery@^2.2.4 --save
+npm install hammerjs --save
+ng -v (ver si quedo v 4 o 2)
